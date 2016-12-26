@@ -9,6 +9,8 @@ the following versions of filenames should work  1219160028.mp4  2015-12-05 20.2
 
 If you comment out the 4 actual db calls (which should be made into a function, but I dont care about that right now) (they are at the end of each if(pattern**) (i do not know how i just made everything bold) 
 
+The script will output each file and if it mattched a pattern.  The matched pattern will be first, then the file name.  ie 'pattern2    foobardonkeypics 2015-12-25 200000.jpg'  
+
 -- addmd5.php
 ***you need add a column 'md5sum' to the table.  varchar(33)* 
 checks current piwigo_images table md5sum column if any are 'null'.  then for each returned, uses the path to get the md5 via md5_file, then updates the row with the md5
