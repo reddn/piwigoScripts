@@ -15,6 +15,8 @@ The script will output each file and if it mattched a pattern.  The matched patt
 ***you need add a column 'md5sum' to the table.  varchar(33)* 
 checks current piwigo_images table md5sum column if any are 'null'.  then for each returned, uses the path to get the md5 via md5_file, then updates the row with the md5
 
+Eventually I will change modify the syncrnizing script to run a md5 on all 'new' photos and check it against current photos prior to adding, checking for dups.  I will also modify it as if files are 'moved', they will not be fully removed from piwigo , but placed in a separate table so all of the album associations/tags/permissions, are saved [note: I do not use the actual directory structure as my albums, but as my upload directory, I plan on using associative albums.
+
 --tomfindbadfilenames.php
 
 uses the directory ./galleries, and searches each sub directory of it to find any file that has a paratheses.  if it finds one, it copies the file with the filename having the  paratheses replalced with a dash.  it also adds the new and old filename with path (including ./galleries/) to another database tabled i named imagescopied (int id auto_increment,varchar(255) copiedfrom,varchar(255) copiedto)[type col_name [options]]
