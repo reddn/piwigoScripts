@@ -2,6 +2,11 @@
 
 piwigo scripts I made
 
+--Background--
+I use an app on my wife and my phones to upload all of our pictures to a directory on my FreeNAS box (where i run piwigo in a jail).  I will not use the built-in Uploader or Album(directory based) features in piwigo as it does not have write permissions to the folder ( on purpose).  
+note: I do not use the actual directory structure as my albums, but as my upload directory, I plan on using associative albums.
+
+
 --adddatecrated.php
 
 if pictures/videos you add to piwigo do not have a date crated attribute (EXIF), then it is blank, which causes a out of order issue when you select the sort by 'Date Crated'.  If the date is in the filename, this will search for it via regular expressions and pull it out, all the way the the 'seconds'.
@@ -15,7 +20,7 @@ The script will output each file and if it mattched a pattern.  The matched patt
 ***you need add a column 'md5sum' to the table.  varchar(33)* 
 checks current piwigo_images table md5sum column if any are 'null'.  then for each returned, uses the path to get the md5 via md5_file, then updates the row with the md5
 
-Eventually I will change modify the synchronizing script to run a md5 on all 'newly found' photos and check it against current photos prior to adding, checking for dups[i see 2.9 beta has something, but i dont know how it implements it].  I will also modify it as if files are 'moved', they will not be fully removed from piwigo , but placed in a separate table so all of the album associations/tags/permissions, are saved [note: I do not use the actual directory structure as my albums, but as my upload directory, I plan on using associative albums.
+Eventually I will change modify the synchronizing script to run a md5 on all 'newly found' photos and check it against current photos prior to adding, checking for dups[i see 2.9 beta has something, but i dont know how it implements it].  I will also modify it as if files are 'moved', they will not be fully removed from piwigo , but placed in a separate table so all of the album associations/tags/permissions, are saved 
 
 --tomfindbadfilenames.php
 
